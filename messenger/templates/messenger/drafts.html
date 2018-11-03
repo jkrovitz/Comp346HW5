@@ -7,10 +7,10 @@
 <p class="inlineText">Message Content</p>
 <p class="inlineText">Date Message Sent</p>
 </div>
-    {% for message in filteredMessageObjects %}
+    {% for message in filtered_message_objects %}
 
            <p class="inlineText">{{message.receiver}}</p>
-            <p class="inlineText">{{ message.text }}</p>
+    <p class="inlineText">{{message.text }}</p>
             <p class="inlineText">{{message.date}}</p>
 
 

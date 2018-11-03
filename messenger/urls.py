@@ -15,6 +15,5 @@ urlpatterns = [
     re_path(r'message_save', views.message_save, name='message_save'),
     re_path(r'sent', views.sent, name='sent'),
     re_path(r'inbox', views.inbox, name='inbox'),
-    re_path(r'draft', views.draft, name='draft')
-
+    re_path(r'drafts', views.drafts, name='drafts')
 ]
