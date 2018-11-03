@@ -42,26 +42,44 @@ def message_save(request):
     text = request.POST.get('message')
     receiver_username = request.POST.get('recipient')
     receiver = User.objects.get(username=receiver_username)
-    m = Message(text=text,
-                sent=True,
-                sender=sender,
-                receiver=receiver)
+    if request.POST.get('submit'):
+        m = Message(text=text,
+                    sent=True,
+                    sender=sender,
+                    receiver=receiver)
+
+    else:
+        m = Message(text=text,
+                    sent=False,
+                    sender=sender,
+                    receiver=receiver)
+
+
     m.save()
     return redirect('/inbox.html')
 
+@login_required
 def sent(request):
-    filteredMessageObjects = Message.objects.filter(sender=request.user)
+    filteredMessageObjects = Message.objects.filter(sender=request.user, sent=True)
     return render(request, 'messenger/sent.html', {'filteredMessageObjects': filteredMessageObjects})
 
 
+@login_required
+def draft(request):
+    filteredMessageObjects = Message.objects.filter(sender=request.user, sent=False)
+    return render(request, 'messenger/draft.html', {'filteredMessageObjects': filteredMessageObjects})
 
 
 
 
-
+@login_required
 def inbox(request):
-    filteredMessageObjects = Message.objects.filter(receiver=request.user)
-    return render(request, 'messenger/inbox.html', {'filteredMessageObjects': filteredMessageObjects, 'user': request.user})
+    filteredMessageObjects = Message.objects.filter(receiver=request.user, sent=True)
+    return render(request, 'messenger/inbox.html', {'filteredMessageObjects': filteredMessageObjects})
 
 
-
+@login_required
+def message_edit(request):
+    users = User.objects.all()
+    message = request.POST.get('message_edit')
+    return render(request, 'messenger/message_edit.html', {'users': users, 'message' : message})

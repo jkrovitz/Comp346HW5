@@ -1,7 +1,7 @@
 {% extends 'messenger/base.html' %}
 
 {% block content %}
-  <h2>Inbox</h2>
+  <h2>Drafts</h2>
     <div class="reduceMargin">
 <p class="inlineText">Sender</p>
 <p class="inlineText">Message Content</p>
@@ -9,14 +9,21 @@
 </div>
     {% for message in filteredMessageObjects %}
 
-           <p class="inlineText">{{message.sender}}</p>
+           <p class="inlineText">{{message.receiver}}</p>
             <p class="inlineText">{{ message.text }}</p>
             <p class="inlineText">{{message.date}}</p>
 
+
+
+        <form action="/message_edit.html" method="post">
+               {% csrf_token %}
+
+          <a class="btn btn-secondary btn-sm mt-1 mb-1" href="message_edit">Update</a>
+        </form>
+
     {% endfor %}
 
-    <a class="action" href="/message_create"><button class="message_create">Create Message</button></a>
 
-    <a class="action" href="/"><button class="home">Home</button></a>
+
 
 {% endblock %}
