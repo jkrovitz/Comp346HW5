@@ -1,0 +1,18 @@
+{% extends 'messenger/base.html' %}
+
+{% block content %}
+  <h2>Sent</h2>
+    {% for message in filteredMessageObjects %}
+        <p class="inlineText">{{message.receiver}}</p>
+        <p class="inlineText">{{ message.text }}</p>
+        <p class="inlineText">{{message.date}}</p>
+
+
+    {% endfor %}
+
+    <a class="action" href="/message_create"><button class="message_create">Create Message</button></a>
+
+    <a class="action" href="/"><button class="home">Home</button></a>
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'messenger/base.html' %}
+
+{% block content %}
+  <h2>Inbox</h2>
+    <div class="reduceMargin">
+<p class="inlineText">Sender</p>
+<p class="inlineText">Message Content</p>
+<p class="inlineText">Date Message Sent</p>
+</div>
+    {% for message in filteredMessageObjects %}
+{#        {% if message.receiver == user.username %}#}
+           <p class="inlineText">{{message.sender}}</p>
+            <p class="inlineText">{{ message.text }}</p>
+            <p class="inlineText">{{message.date}}</p>
+{#        {% endif %}#}
+    {% endfor %}
+
+
+
+{% endblock %}
