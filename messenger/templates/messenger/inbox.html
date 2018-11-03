@@ -2,21 +2,15 @@
 
 {% block content %}
   <h2>Inbox</h2>
-    <div class="reduceMargin">
-<p class="inlineText">Sender</p>
-<p class="inlineText">Message Content</p>
-<p class="inlineText">Date Message Sent</p>
-</div>
-    {% for message in filteredMessageObjects %}
-
-           <p class="inlineText">{{message.sender}}</p>
-            <p class="inlineText">{{ message.text }}</p>
-            <p class="inlineText">{{message.date}}</p>
-
+    <hr>
+    {% for message in filtered_message_objects %}
+        <h5>{{ message.sender }}</h5>
+        <p>{{ message.text }}</p>
+        <sup>{{ message.date | date:"F d, Y" }}</sup>
+        <br>
+        <hr>
     {% endfor %}
 
-    <a class="action" href="/message_create"><button class="message_create">Create Message</button></a>
 
-    <a class="action" href="/"><button class="home">Home</button></a>
 
 {% endblock %}

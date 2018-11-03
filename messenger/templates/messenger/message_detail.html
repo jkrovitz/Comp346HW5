@@ -1,0 +1,15 @@
+{% extends 'messenger/base.html' %}
+
+{% block content %}
+  <h2>Inbox</h2>
+    <hr>
+    	<p>{{ message.id}}</p>
+        <h5>{{ message.sender }}</h5>
+        <p>{{ message.text }}</p>
+        <sup>{{ message.date | date:"F d, Y" }}</sup>
+        <br>
+        <hr>
+
+
+
+{% endblock %}

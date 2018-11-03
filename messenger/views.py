@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from datetime import datetime
+from django.utils.dateformat import format
 
 from django.shortcuts import render, redirect
 from django.http.response import HttpResponse
@@ -49,6 +51,11 @@ def message_save(request):
                     sender=sender,
                     receiver=receiver)
     m.save()
+    message_id = m.id
+    print("This is the message id: ")
+    
+    print( message_id )
+
     return redirect('/inbox.html')
 
 @login_required
@@ -74,3 +81,11 @@ def message_edit(request):
     message = request.POST.get('message_edit')
     print(message)
     return render(request, 'messenger/message_edit.html', {'users': users, 'message': message})
+
+
+@login_required
+def message_detail(request, pk): 
+    message = Message.objects.get(pk=pk)
+    return render(request, 'messenger/message_detail.html', {'message': message})
+
+
