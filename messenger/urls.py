@@ -16,6 +16,6 @@ urlpatterns = [
     re_path(r'sent', views.sent, name='sent'),
     re_path(r'inbox', views.inbox, name='inbox'),
     re_path(r'drafts', views.drafts, name='drafts'),
-    url(r'^(?P<pk>\d+)/$', views.message_detail, name='message_detail'),
+    url(r'^(?P<id>\d+)/$', views.message_detail, name='message_detail'),
 
 ]

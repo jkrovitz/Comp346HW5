@@ -8,7 +8,7 @@
         {{ message.text }}
         <select name="recipient">
             {% for user in users %}
-                {% if message.receiver %}
+                {% if message.receiver == user %}
                     <option value="{{ user }}" selected="selected">{{ user }}</option>
                 {% else %}
                     <option value="{{ user }}">{{ user }}</option>

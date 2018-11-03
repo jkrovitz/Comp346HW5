@@ -78,14 +78,14 @@ def drafts(request):
 @login_required
 def message_edit(request):
     users = User.objects.all()
-    message = request.POST.get('message_edit')
-    print(message)
-    return render(request, 'messenger/message_edit.html', {'users': users, 'message': message})
+    id = request.POST.get('message_edit')
+    message = Message.objects.filter(id=id)
+    return render(request, 'messenger/message_edit.html', {'users': users, 'message': message[0]})
 
 
 @login_required
-def message_detail(request, pk): 
-    message = Message.objects.get(pk=pk)
+def message_detail(request, id): 
+    message = Message.objects.get(id=id)
     return render(request, 'messenger/message_detail.html', {'message': message})
 
 
