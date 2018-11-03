@@ -59,6 +59,21 @@ def message_save(request):
     return redirect('/inbox.html')
 
 @login_required
+def message_update(request, message_id):
+    current_message = Message.objects.filter(id=message_id)[0]
+    current_message.sender = request.user
+    current_message.text = request.POST.get('message')
+    receiver_username = request.POST.get('recipient')
+    current_message.receiver = User.objects.get(username=receiver_username)
+    if request.POST.get('submit'):
+        current_message.sent = True; 
+    else:   
+        current_message.sent = False; 
+    current_message.save()
+
+    return redirect('/inbox.html')
+
+@login_required
 def sent(request):
     filtered_message_objects = Message.objects.filter(sender=request.user, sent=True)
     return render(request, 'messenger/sent.html', {'filtered_message_objects': filtered_message_objects})

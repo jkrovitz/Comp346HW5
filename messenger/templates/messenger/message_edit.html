@@ -2,7 +2,7 @@
 
 {% block content %}
   <h2>Edit a message!</h2>
-    <form action="/message_save.html" method="post">
+    <form action="/message_update/{{message.id}}/" method="post">
         {% csrf_token %}
         <h4>Recipient</h4>
         {{ message.text }}
