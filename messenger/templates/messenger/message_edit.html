@@ -5,7 +5,6 @@
     <form action="/message_update/{{message.id}}/" method="post">
         {% csrf_token %}
         <h4>Recipient</h4>
-        {{ message.text }}
         <select name="recipient">
             {% for user in users %}
                 {% if message.receiver == user %}
@@ -17,7 +16,7 @@
         </select>
 
         <h5>Message</h5>
-        <textarea name="message">{{ message.text }}</textarea>
+        <textarea  rows="6" cols="75" name="message">{{ message.text }}</textarea>
 
         <br>
 
