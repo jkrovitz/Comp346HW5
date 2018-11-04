@@ -1,0 +1,169 @@
+main{
+	margin: .5in 0in .5in .5in;
+}
+
+h1{
+	margin: .3in .3in 0 .3in;
+}
+
+.loginLogoutClass{
+	margin: .3in .3in 0 .3in;
+}
+
+.mailImg{
+	width: 50%; 
+
+}
+
+body {
+  background: #fafafa;
+  color: #333333;
+  margin: .5in .5in .5in .5in;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.site-header{
+	margin-bottom: 100px;
+}
+
+
+.inlineUser{
+  display: inline-block;
+  width: 15%;
+}
+
+.inlineText{
+  display: inline-block;
+  width: 50%;
+}
+
+.inlineDate{
+  display: inline-block;
+  width: 15%;
+}
+
+.spaceBetweenInline{
+  display: inline-block;
+  width: 20px;
+}
+
+.newMessageButton{
+  margin-bottom: 20px;
+
+}
+
+.reduceMargin{
+  margin-bottom: -30px;
+}
+
+.inboxHeader{
+  margin-bottom: 30px;
+  padding-right: 50px;
+}
+
+.oneLineText{
+  white-space: nowrap;
+  overflow: hidden;
+  
+}
+
+.marginBetweenH2AndButtons{
+  margin-top: 50px;
+}
+
+.add-right-margin{
+  margin-right: 50px;
+}
+
+.my-button-class{
+  width: 300px; 
+}
+
+.my-edit-button-class{
+  display: inline-block;
+}
+
+
+h3 {
+  display: inline-block;
+  margin: 0;
+}
+
+.keep-inline{
+  display: inline-block;
+  margin: 0;
+}
+
+
+.rightNavPar{
+  display: inline-block;
+  float: right;
+}
+
+.right{
+    float: right;
+    right: 0;
+    margin-top: 8px;
+    color: white;
+}
+
+.left{
+    float:left;
+}
+
+.add-space-right{
+  margin-right: 60px;
+  margin-top: 20px;
+}
+
+.listOfMessagesATagClass{
+  font-weight: normal;
+}
+
+.listOfMessagesATagClass:link{
+
+  background-color: ffffff;
+  color: black;
+  transition: transform .2s; 
+
+}
+
+.listOfMessagesATagClass:active, listOfMessagesATagClass:visited {
+  font-weight: normal;
+
+
+}
+
+
+
+
+.listOfMessagesATagClass:hover {
+    transform: scale(1.5); 
+}
+
+.draftbuttonclass{
+  width: 100%;
+}

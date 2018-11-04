@@ -1,43 +1,104 @@
-{% load static %}
+
+{%load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>My Django App</title>
+<head>
+  <meta charset="utf-8">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title> Django Messaging App</title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="http://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="{% static 'style.css' %}">
-  </head>
-  <body>
-    <header>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+
+
+</head>
+<body>
+
+
+
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <div class="container">
+                <a class="navbar-brand mr-4" href="{% url 'home' %}">Messenger App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+           <div class="alignleft">
+          <div class="navbar-nav mr-auto">
+            {% if user.is_authenticated %}
+
+           
+
+            <!-- <a class="nav-item nav-link" href="{% url 'login' %}">Login</a> <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a> -->
+
+ <span class="left"></span>
+
+            <a class="nav-item nav-link" href="{% url 'inbox'%}">Inbox</a>
+
+            <a class="nav-item nav-link" href="{% url 'create'%}">Compose</a>
+
+             <a class="nav-item nav-link" href="{% url 'sent'%}">Sent</a>
+
+
+             <a class="nav-item nav-link" href="{% url 'drafts'%}">Drafts</a>
+
+             <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+
+             <p class="rightNavPar">  </p>
+            
+
+            <div class="add-space-right"></div>
+            <span class="right">Current User: {{ user.username }}</span>
+</div>
+            
+
+
+            <div class="navbar-nav">
+               <div class="alignright">
+              
+            </div>
+            <hr>
+          </div>
+          {% else %}
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-item nav-link" href="{% url 'signup' %}">Register</a>
+
+          </div>
+
+        </div>
+      </div>
+      {% endif %}
+    </nav>
+  </header>
+
+
+<!--     <header>
       <h1>My Site</h1>
       {% if user.is_authenticated %}
-          <table></table>
-            <td><a href="/">Home</a></td>
-            <td><a href="/inbox">Inbox</a></td>
-            <td><a href="/sent">Sent</a></td>
-            <td><a href="/drafts">Drafts</a></td>
-            <td><a href="/message_create">Create Message</a></td>
-            <td>{{ user.username }}</td>
-            <td><a href="{% url 'logout' %}">logout</a></td>
+        <a class="loginLogoutClass" href="{% url 'logout' %}">Logout</a>
       {% else %}
-        <a href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">signup</a>
+        <a class="loginLogoutClass" href="{% url 'login' %}">login</a> / <a href="{% url 'signup' %}">signup</a>
       {% endif %}
-
       <hr>
-
     </header>
-    <main>
-      {% block content %}
-      {% endblock %}
-    </main>
-  </body>
+  -->   
+   <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
 </html>

@@ -1,0 +1,12 @@
+{% extends 'messenger/base.html' %}
+
+
+{% load i18n %}
+
+{% blocktrans with reciever=message.reciever
+	sender=message.sender %}Hello {{ recipient }},
+
+you received a private message from {{ sender }} with
+the following contents:{% endblocktrans %}
+
+{{ message.body|safe }}

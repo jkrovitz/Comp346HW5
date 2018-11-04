@@ -10,6 +10,18 @@ from django.http.response import HttpResponse
 from .models import Message
 
 
+''' 
+Jeremy Krovitz
+Homework 5 
+COMP 346 - Internet Computing 
+
+
+Assignment Description: 
+In this assignment I created a messaging application 
+that users to send messages to other users. 
+'''
+
+
 @login_required
 def home(request):
     messages = Message.objects.filter(sender=request.user)

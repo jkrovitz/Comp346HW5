@@ -2,6 +2,10 @@
 
 {% block content %}
   <h2>Welcome, {{ user.username }}!</h2>
+<div class="marginBetweenH2AndButtons">
+	
+		<a href="{% url 'inbox'%}" class="btn btn-primary btn-lg add-right-margin my-button-class">Inbox</a>
 
-
+		<a href="{% url 'create'%}" class="btn btn-secondary btn-lg my-button-class">Create Message</a>
+</div>
 {% endblock %}

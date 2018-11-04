@@ -2,13 +2,21 @@
 
 {% block content %}
   <h2>Sent</h2>
+  <div class="reduceMargin">
+		<p class="inlineUser">Sender</p>
+		<p class="spaceBetweenInline"></p>
+		<p class="inlineText">Message Content</p>
+		<p class="spaceBetweenInline"></p>
+		<p class="inlineDate">Date Sent</p> 
+	</div>
     <hr>
-    {% for message in filtered_message_objects %}
-        <h5>{{ message.receiver }}</h5>
-        <p>{{ message.text }}</p>
-        <sup>{{ message.date }}</sup>
-        <br>
-        <hr>
+   {% for message in filtered_message_objects %}
+        <p class="inlineUser oneLineText">{{ message.receiver }}</p>
+        <p class="spaceBetweenInline"></p>
+        <p class="inlineText oneLineText">{{ message.text }}</p>
+        <p class="spaceBetweenInline"></p>
+        <p class="inlineDate oneLineText">{{ message.date | date:"F d, Y" }}</p>
     {% endfor %}
+
 
 {% endblock %}
